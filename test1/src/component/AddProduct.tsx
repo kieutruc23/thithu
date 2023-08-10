@@ -2,7 +2,7 @@
 import { Button, Form, Input } from 'antd';
 import { useAppDispatch } from '../store/hooks';
 import { useNavigate } from "react-router-dom"
-import { Iproduct, addProduct } from '../action/Product';
+import { addProduct } from '../action/Product';
 
 const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
@@ -17,7 +17,7 @@ type FieldType = {
 const AddProduct = () => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
-    const onFinish = (values: Iproduct) => {
+    const onFinish = (values: any) => {
         dispatch(addProduct(values))
         alert("thm sp thành công")
         navigate("/")

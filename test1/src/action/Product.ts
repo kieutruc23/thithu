@@ -1,11 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance } from "../api/instance";
-export interface Iproduct {
-    id?: any
-    name: string
-    price: number
-    dec: string
-}
+
 
 export const getAllproduct = createAsyncThunk("product/getallproduct", async () => {
     const data = await instance.get(`/products`)
@@ -22,7 +17,7 @@ export const deleteProduct = createAsyncThunk("product/deleteproduct", async (id
 
 })
 
-export const addProduct = createAsyncThunk("product/addproduct", async (product: Iproduct) => {
+export const addProduct = createAsyncThunk("product/addproduct", async (product: any) => {
     const data = await instance.post(`/products`, product)
     return data
 })
